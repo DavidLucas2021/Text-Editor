@@ -85,5 +85,55 @@ namespace Editor_de_Textos
         {
             Func_Salvar();
         }
+
+        //FUNÇÃO DE ABRIR ARQUIVO 
+        private void Fun_Abrir()
+        {
+            //DETERMINA QUE NÃO SERA POSSIVEL SELECIONAR MAIS DE UM ARQUIVO
+            this.openFileDialog1.Multiselect = false;
+            //DETERMINA O TITULO DA JANELA DE ABERTURA 
+            this.openFileDialog1.Title = "Abrir Arquivo";
+            //DETERMINA O DIRETÓRIO INICIAL DA JANELA DE ABERTURA 
+            openFileDialog1.InitialDirectory = @"C:\Users\SMART AUTOMAÇÃO\Desktop";
+            //DETERMINA O FILTRO DE ARQUIVOS A SEREM ABERTOS
+            //ESTE FILTRO TAMBÉM PODE SER IMPLEMENTADO NA FUNÇÃO SALVAR  
+            openFileDialog1.Filter = "(*.TXT)|*.TXT";
+            //VERIFICA SE O OK DA JANELA DE ABERTURA FOI ACIONADO
+            //PODE SER USADO ESSE TRECHO DE CÓDIGO OU O TRECHO DE CÓDIGO 
+            //QUE FOI USADO NA FUNÇÃO SALVAR PARA VERIFICAÇÃO - OS DOIS 
+            //FORNECEM O MESMO RESULTADO
+            DialogResult dr = this.openFileDialog1.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    FileStream arquivo = new FileStream(openFileDialog1.FileName,FileMode.Open,FileAccess.Read);
+                    StreamReader leitor = new StreamReader(arquivo);
+                    leitor.BaseStream.Seek(0, SeekOrigin.Begin);
+                    this.richTextBox1.Text = "";
+                    string linha_prenchida = leitor.ReadLine();
+                    while(linha_prenchida != null)
+                    {
+                        this.richTextBox1.Text += linha_prenchida + Environment.NewLine;
+                        linha_prenchida = leitor.ReadLine();
+                    }
+                    leitor.Close();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error ao abrir o arquivo: " + ex.Message, "Erro ao Abrir o Arquivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        //BOTÃO DE ABRIR 
+        private void bt_abrir_Click(object sender, EventArgs e)
+        {
+            Fun_Abrir();
+        }
+        //MENU - ABRIR 
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fun_Abrir();
+        }
     }
 }

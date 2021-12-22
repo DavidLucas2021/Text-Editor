@@ -100,7 +100,7 @@ namespace Editor_de_Textos
             this.formatarToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(185, 24);
+            this.menu.Size = new System.Drawing.Size(305, 24);
             this.menu.TabIndex = 1;
             this.menu.Text = "menuStrip1";
             // 
@@ -126,8 +126,9 @@ namespace Editor_de_Textos
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // salvarToolStripMenuItem
             // 
@@ -293,6 +294,7 @@ namespace Editor_de_Textos
             this.bt_abrir.Name = "bt_abrir";
             this.bt_abrir.Size = new System.Drawing.Size(23, 22);
             this.bt_abrir.Text = "Abrir";
+            this.bt_abrir.Click += new System.EventHandler(this.bt_abrir_Click);
             // 
             // bt_salvar
             // 
