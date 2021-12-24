@@ -119,21 +119,21 @@ namespace Editor_de_Textos
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // abrirToolStripMenuItem
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
             // salvarToolStripMenuItem
             // 
             this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.salvarToolStripMenuItem.Text = "Salvar";
             this.salvarToolStripMenuItem.Click += new System.EventHandler(this.salvarToolStripMenuItem_Click);
             // 
@@ -165,12 +165,14 @@ namespace Editor_de_Textos
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
             this.copiarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.copiarToolStripMenuItem.Text = "Copiar";
+            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
             // 
             // colarToolStripMenuItem
             // 
             this.colarToolStripMenuItem.Name = "colarToolStripMenuItem";
             this.colarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.colarToolStripMenuItem.Text = "Colar";
+            this.colarToolStripMenuItem.Click += new System.EventHandler(this.colarToolStripMenuItem_Click);
             // 
             // desfazerToolStripMenuItem
             // 
@@ -198,20 +200,23 @@ namespace Editor_de_Textos
             // negritoToolStripMenuItem
             // 
             this.negritoToolStripMenuItem.Name = "negritoToolStripMenuItem";
-            this.negritoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.negritoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.negritoToolStripMenuItem.Text = "Negrito";
+            this.negritoToolStripMenuItem.Click += new System.EventHandler(this.negritoToolStripMenuItem_Click);
             // 
             // itálicoToolStripMenuItem
             // 
             this.itálicoToolStripMenuItem.Name = "itálicoToolStripMenuItem";
-            this.itálicoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.itálicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.itálicoToolStripMenuItem.Text = "Itálico";
+            this.itálicoToolStripMenuItem.Click += new System.EventHandler(this.itálicoToolStripMenuItem_Click);
             // 
             // sublinhadoToolStripMenuItem
             // 
             this.sublinhadoToolStripMenuItem.Name = "sublinhadoToolStripMenuItem";
-            this.sublinhadoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.sublinhadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sublinhadoToolStripMenuItem.Text = "Sublinhado";
+            this.sublinhadoToolStripMenuItem.Click += new System.EventHandler(this.sublinhadoToolStripMenuItem_Click);
             // 
             // alinhamentoToolStripMenuItem
             // 
@@ -221,7 +226,7 @@ namespace Editor_de_Textos
             this.direitaToolStripMenuItem,
             this.justificarToolStripMenuItem});
             this.alinhamentoToolStripMenuItem.Name = "alinhamentoToolStripMenuItem";
-            this.alinhamentoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.alinhamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alinhamentoToolStripMenuItem.Text = "Alinhamento";
             // 
             // esquerdaToolStripMenuItem
@@ -320,6 +325,7 @@ namespace Editor_de_Textos
             this.bt_copiar.Name = "bt_copiar";
             this.bt_copiar.Size = new System.Drawing.Size(23, 22);
             this.bt_copiar.Text = "Copiar";
+            this.bt_copiar.Click += new System.EventHandler(this.bt_copiar_Click);
             // 
             // bt_colar
             // 
@@ -329,6 +335,7 @@ namespace Editor_de_Textos
             this.bt_colar.Name = "bt_colar";
             this.bt_colar.Size = new System.Drawing.Size(23, 22);
             this.bt_colar.Text = "Colar";
+            this.bt_colar.Click += new System.EventHandler(this.bt_colar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -343,6 +350,7 @@ namespace Editor_de_Textos
             this.bt_negrito.Name = "bt_negrito";
             this.bt_negrito.Size = new System.Drawing.Size(23, 22);
             this.bt_negrito.Text = "Negrito";
+            this.bt_negrito.Click += new System.EventHandler(this.bt_negrito_Click);
             // 
             // bt_itálico
             // 
@@ -352,6 +360,7 @@ namespace Editor_de_Textos
             this.bt_itálico.Name = "bt_itálico";
             this.bt_itálico.Size = new System.Drawing.Size(23, 22);
             this.bt_itálico.Text = "Itálico";
+            this.bt_itálico.Click += new System.EventHandler(this.bt_itálico_Click);
             // 
             // bt_sublinhado
             // 
@@ -361,6 +370,7 @@ namespace Editor_de_Textos
             this.bt_sublinhado.Name = "bt_sublinhado";
             this.bt_sublinhado.Size = new System.Drawing.Size(23, 22);
             this.bt_sublinhado.Text = "Sublinhado";
+            this.bt_sublinhado.Click += new System.EventHandler(this.bt_sublinhado_Click);
             // 
             // bt_fonte
             // 
