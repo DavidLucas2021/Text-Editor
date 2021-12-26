@@ -14,7 +14,7 @@ namespace Editor_de_Textos
     public partial class Form1 : Form
     {
         //USADO PARA FAZER LEITURA DO ARQUIVO DE TEXTO 
-        StreamReader leitura = null;
+        StringReader leitura = null;
 
         public Form1()
         {
@@ -406,6 +406,119 @@ namespace Editor_de_Textos
         private void sublinhadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fun_Sublinhado();
+        }
+
+        //FUNÇÃO DE ALINHAMENTO A ESQUERDA
+        private void Fun_alinha_esquerda()
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+        }
+        //BOTÃO DE ALINHAMENTO A ESQUERDA
+        private void bt_alinha_esq_Click(object sender, EventArgs e)
+        {
+            Fun_alinha_esquerda();
+        }
+        //MENU - ALINHAMENTO A ESQUERDA
+        private void esquerdaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fun_alinha_esquerda();
+        }
+
+        //FUNÇÃO DE ALINHAMENTO A DIREITA
+        private void Fun_alinha_direita()
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+        }
+        //BOTÃO DE ALINHAMENTO A DIREITA
+        private void bt_alinha_dire_Click(object sender, EventArgs e)
+        {
+            Fun_alinha_direita();
+        }
+        //MENU - ALINHAMENTO A DIREITA 
+        private void direitaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fun_alinha_direita();
+        }
+
+        //FUNÇÃO DE ALINHAMENTO CENTRALIZADO
+        private void Fun_alinha_centralizado()
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+        }
+        //BOTÃO DE CENTRALIZAR 
+        private void bt_centralizar_Click(object sender, EventArgs e)
+        {
+            Fun_alinha_centralizado();
+        }
+        //MENU - CENTRALIZAR 
+        private void centralizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fun_alinha_centralizado();
+        }
+
+
+        //FUNÇÃO DE IMPRIMIR
+        private void Fun_imprimir()
+        {
+            //PRINTDIALOG == JANELA DE IMPRESSÃO 
+            //PRINTDOCUMENT == CONFIGURAÇÃO DE IMPRESSÃO
+            printDialog1.Document = printDocument1;
+            string texto = richTextBox1.Text;
+            leitura = new StringReader(texto);
+            if(printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            float linhas_pg = 0;
+            float posY = 0;
+            int cont = 0;
+            string linha = null;
+            float marge_esquerda = e.MarginBounds.Left - 50;
+            float marge_superior = e.MarginBounds.Top - 50;
+
+            Font font = this.richTextBox1.Font;
+            SolidBrush pincel = new SolidBrush(Color.Black);
+
+
+            if(marge_esquerda < 5)
+            {
+                marge_esquerda = 20;
+            }
+            if(marge_superior < 5)
+            {
+                marge_superior = 20;
+            }
+
+            //CALCULA O NUMERO DE LINHA POR PÁGINA COM REFERÊNCIA NO TAMANHO DA FONTE
+            linhas_pg = e.MarginBounds.Height / font.GetHeight(e.Graphics);
+            linha = leitura.ReadLine();
+            while(cont < linhas_pg)
+            {
+                //CALCULA A POSIÇÃO Y PELO TAMANHO DA FONTE 
+                posY = (marge_superior + (cont * font.GetHeight(e.Graphics)));
+                //RESPONSÁVEL POR DESENHAR AS LINHAS NA IMPRESSÃO
+                e.Graphics.DrawString(linha, font, pincel, marge_esquerda, posY, new StringFormat());
+                cont += 1;
+                linha = leitura.ReadLine();
+            }
+            if(linha != null)
+            {
+                e.HasMorePages = true;
+            }
+            else
+            {
+                e.HasMorePages = false;
+            }
+            pincel.Dispose();
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fun_imprimir();
         }
     }
 }
