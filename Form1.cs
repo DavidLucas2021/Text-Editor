@@ -515,10 +515,56 @@ namespace Editor_de_Textos
             }
             pincel.Dispose();
         }
-
+        //MENU - IMPRIMIR 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fun_imprimir();
+        }
+
+        //------------------------------------------------------------------
+        //AS SEGUINTES FUNÇOES NÃO FORAM ENSINADAS NO CURSO 
+
+        //FUNÇÃO PARA DEFINIR A FONTE DO TEXTO 
+        private void Fun_fonte()
+        {
+            if(fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.SelectionFont = fontDialog1.Font;
+            }
+        }
+        //BOTÃO DE FONTE 
+        private void bt_fonte_Click(object sender, EventArgs e)
+        {
+            Fun_fonte();
+        }
+
+        //FUNÇÃO MENU - SAIR DA APLICAÇÃO 
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.TextLength == 0)
+            {
+                this.Close();
+            }
+            else
+            {
+                if (MessageBox.Show("Deseja salvar o arquivo?", "Salvar arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (this.saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        FileStream arquivo = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate, FileAccess.Write);
+                        StreamWriter gravartexto = new StreamWriter(arquivo);
+                        gravartexto.Flush();
+                        gravartexto.BaseStream.Seek(0, SeekOrigin.Begin);
+                        gravartexto.Write(this.richTextBox1.Text);
+                        gravartexto.Flush();
+                        gravartexto.Close();
+                    }
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }
