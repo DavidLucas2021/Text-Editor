@@ -50,7 +50,7 @@ namespace Editor_de_Textos
                         //------LIMPAR O BUFFER DE GRAVAÇÃO
                         gravartexto.Flush();
                         //TRECHO QUE DETERMINA APARTI DE QUE PONTO GRAVAR
-                        //------DETERMA O PONTO DE PARTIDA DE GRAVAÇÃO
+                        //------DETERMA O PONTO DE PARTIDA DE GRAVAÇÃO DO TEXTO
                         gravartexto.BaseStream.Seek(0, SeekOrigin.Begin);
                         //------ESCREVE OQUE ESTA EM RICHTEXTBOX1 NO GRAVADOR
                         gravartexto.Write(this.richTextBox1.Text);
