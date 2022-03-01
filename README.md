@@ -3,8 +3,8 @@
 <p align="center">Esse projeto é uma aplicação para edição de textos com as principais funcionalidades.</p>
 
 <p align="center">
-<img alt="Text-Editorimg" title="Editor de Textos-img" src="./github/Tela da aplicação.PNG" width= "600" height= "425"/>
-<img alt="Text-Editorgif" title="Editor de Textos-gif" src="./github/editor de textos.gif" height="425"/>
+<img alt="Text-Editorimg" title="Editor de Textos-img" src="./github/Tela da aplicação.PNG" width= "700" height= "500"/>
+<img alt="Text-Editorgif" title="Editor de Textos-gif" src="./github/editor de textos.gif" height="500" width="700"/>
 </p>
 
 ## Recursos
